@@ -1,0 +1,30 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    username: root
+    password: qjp0128.
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://101.42.152.88:3306/ape-frame?serverTimeZone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&useSSL=false
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 20   #初始连接数
+      min-idle: 20       #最小空闲数
+      max-active: 100    #最大活跃数
+      max-wait: 60000    #最多等待时间
+      stat-view-servlet:       #视图配置
+        enabled: true
+        url-pattern: /druid/*     #路径
+        login-username: admin
+        login-password: 123456
+      filter:
+        stat:
+          enabled: true
+          log-slow-sql: true
+          slow-sql-mills: 2000
+        wall:
+          enabled: true
+#mybatis-plus:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #打印sql语句
+#    mapper-locations: com/qjp/mapper/xml/*.xml   # 配置mapper的扫描，找到所有的mapper.xml映射文件
