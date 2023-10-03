@@ -2,9 +2,9 @@ package com.qjp.user.service.impl;
 
 import com.qjp.bean.PageResponse;
 import com.qjp.user.convert.SysUserConverter;
-import com.qjp.user.mapper.SysUserDao;
 import com.qjp.user.entity.po.SysUser;
 import com.qjp.user.entity.req.SysUserReq;
+import com.qjp.user.mapper.SysUserDao;
 import com.qjp.user.service.SysUserService;
 import org.springframework.stereotype.Service;
 
@@ -30,21 +30,18 @@ public class SysUserServiceImpl implements SysUserService {
      */
     @Override
     public SysUser queryById(Long id) {
-        return this.sysUserDao.queryById(id);
+        return sysUserDao.selectById(id);
     }
 
     /**
      * 分页查询
      *
-     * @param sysUser 筛选条件
-     * @param pageRequest      分页对象
      * @return 查询结果
      */
     @Override
     public PageResponse<SysUser> queryByPage(SysUserReq sysUserReq) {
 
-        SysUser sysUser = SysUserConverter.INSTANCE.converReqToSysUser(sysUserReq); //属性拷贝并实例化
-
+        SysUser sysUser = SysUserConverter.INSTANCE.converReqToSysUser(sysUserReq);
         PageResponse<SysUser> pageResponse = new PageResponse<>();
         pageResponse.setCurrent(sysUserReq.getPageNo());
         pageResponse.setPageSize(sysUserReq.getPageSize());
@@ -76,7 +73,7 @@ public class SysUserServiceImpl implements SysUserService {
      */
     @Override
     public SysUser update(SysUser sysUser) {
-        this.sysUserDao.update(sysUser);
+        sysUserDao.updateById(sysUser);
         return this.queryById(sysUser.getId());
     }
 

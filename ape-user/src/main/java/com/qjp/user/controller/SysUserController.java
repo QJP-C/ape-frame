@@ -31,14 +31,14 @@ public class SysUserController  {
    
    /** 
      * 
-     * @param sysUserdto 请求参数封装
+     * @param sysUserReq 请求参数封装
      * @author makejava 
      * @description //TODO  分页查询所有数据
      * @date 2023-09-26 15:53:27
      * @return 实例对象
      */
     @PostMapping("/findSysUserSelectList")
-    public Result<PageResponse<SysUser>> findSysUserSelectList(@RequestBody SysUserReq sysUserReq ) {
+    public Result<PageResponse<SysUser>> findSysUserSelectList(SysUserReq sysUserReq ) {
         return Result.ok(sysUserService.queryByPage(sysUserReq));
     }
 
@@ -67,9 +67,8 @@ public class SysUserController  {
     @PostMapping
     @ApiOperation(value = "新增用户",notes = "用户数据")
     public Result insert(SysUser sysUser) {
-        System.out.println(sysUser);
         SysUser user = sysUserService.insert(sysUser);
-        return Result.ok();
+        return Result.ok(user);
     }
 
     /** 
@@ -81,7 +80,7 @@ public class SysUserController  {
      * @return 修改结果
      */
     @PutMapping
-    public Result update(@RequestBody SysUser SysUser) {
+    public Result update(SysUser SysUser) {
          return Result.ok(sysUserService.update(SysUser));
     }
 

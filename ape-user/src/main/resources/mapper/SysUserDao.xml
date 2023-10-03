@@ -14,32 +14,27 @@
         <result property="version" column="version" jdbcType="INTEGER"/>
     </resultMap>
 
-    <!--查询单个-->
-    <select id="queryById" resultMap="SysUserMap">
-        select id,
-               name,
-               age,
-               create_by,
-               create_time,
-               update_by,
-               update_time,
-               delete_flag,
-               version
-        from sys_user
-        where id = #{id}
-    </select>
+<!--    &lt;!&ndash;查询单个&ndash;&gt;-->
+<!--    <select id="queryById" resultMap="SysUserMap">-->
+<!--        select id,-->
+<!--               name,-->
+<!--               age,-->
+<!--               create_by,-->
+<!--               create_time,-->
+<!--               update_by,-->
+<!--               update_time,-->
+<!--               delete_flag,-->
+<!--               version-->
+<!--        from sys_user-->
+<!--        where id = #{id}-->
+<!--    </select>-->
 
     <!--查询指定行数据-->
-     <select id="queryAllByLimit" resultMap="SysUserMap">
-        select id,
-        name,
-        age,
-        create_by,
-        create_time,
-        update_by,
-        update_time,
-        delete_flag,
-        version from sys_user
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="SysUserMap">
+        select
+        id, name, age, create_by, create_time, update_by, update_time, delete_flag, version
+        from sys_user
         <where>
             <if test="po.id != null">
                 and id = #{po.id}
@@ -113,77 +108,77 @@
 <!--        values (#{name}#{age}#{createBy}#{createTime}#{updateBy}#{updateTime}#{deleteFlag}#{version})-->
 <!--    </insert>-->
 
-    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into sys_user(id,
-        name,
-        age,
-        create_by,
-        create_time,
-        update_by,
-        update_time,
-        delete_flag,
-        version)
-        values
-        <foreach collection="entities" item="entity" separator=",">
-        (#{entity.name}#{entity.age}#{entity.createBy}#{entity.createTime}#{entity.updateBy}#{entity.updateTime}#{entity.deleteFlag}#{entity.version})
-        </foreach>
-    </insert>
+<!--    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">-->
+<!--        insert into sys_user(id,-->
+<!--        name,-->
+<!--        age,-->
+<!--        create_by,-->
+<!--        create_time,-->
+<!--        update_by,-->
+<!--        update_time,-->
+<!--        delete_flag,-->
+<!--        version)-->
+<!--        values-->
+<!--        <foreach collection="entities" item="entity" separator=",">-->
+<!--        (#{entity.name}#{entity.age}#{entity.createBy}#{entity.createTime}#{entity.updateBy}#{entity.updateTime}#{entity.deleteFlag}#{entity.version})-->
+<!--        </foreach>-->
+<!--    </insert>-->
 
-    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into sys_user(id,
-        name,
-        age,
-        create_by,
-        create_time,
-        update_by,
-        update_time,
-        delete_flag,
-        version)
-        values
-        <foreach collection="entities" item="entity" separator=",">
-            (#{entity.name}#{entity.age}#{entity.createBy}#{entity.createTime}#{entity.updateBy}#{entity.updateTime}#{entity.deleteFlag}#{entity.version})
-        </foreach>
-        on duplicate key update
-        name = values(name)age = values(age)create_by = values(create_by)create_time = values(create_time)update_by =
-        values(update_by)update_time = values(update_time)delete_flag = values(delete_flag)version = values(version)
-    </insert>
+<!--    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">-->
+<!--        insert into sys_user(id,-->
+<!--        name,-->
+<!--        age,-->
+<!--        create_by,-->
+<!--        create_time,-->
+<!--        update_by,-->
+<!--        update_time,-->
+<!--        delete_flag,-->
+<!--        version)-->
+<!--        values-->
+<!--        <foreach collection="entities" item="entity" separator=",">-->
+<!--            (#{entity.name}#{entity.age}#{entity.createBy}#{entity.createTime}#{entity.updateBy}#{entity.updateTime}#{entity.deleteFlag}#{entity.version})-->
+<!--        </foreach>-->
+<!--        on duplicate key update-->
+<!--        name = values(name)age = values(age)create_by = values(create_by)create_time = values(create_time)update_by =-->
+<!--        values(update_by)update_time = values(update_time)delete_flag = values(delete_flag)version = values(version)-->
+<!--    </insert>-->
 
     <!--通过主键修改数据-->
-    <update id="update">
-        update sys_user
-        <set>
-            <if test="name != null and name != ''">
-                name = #{name},
-            </if>
-            <if test="age != null">
-                age = #{age},
-            </if>
-            <if test="createBy != null and createBy != ''">
-                create_by = #{createBy},
-            </if>
-            <if test="createTime != null">
-                create_time = #{createTime},
-            </if>
-            <if test="updateBy != null and updateBy != ''">
-                update_by = #{updateBy},
-            </if>
-            <if test="updateTime != null">
-                update_time = #{updateTime},
-            </if>
-            <if test="deleteFlag != null">
-                delete_flag = #{deleteFlag},
-            </if>
-            <if test="version != null">
-                version = #{version},
-            </if>
-        </set>
-        where id = #{id}
-    </update>
+<!--    <update id="update">-->
+<!--        update sys_user-->
+<!--        <set>-->
+<!--            <if test="name != null and name != ''">-->
+<!--                name = #{name},-->
+<!--            </if>-->
+<!--            <if test="age != null">-->
+<!--                age = #{age},-->
+<!--            </if>-->
+<!--            <if test="createBy != null and createBy != ''">-->
+<!--                create_by = #{createBy},-->
+<!--            </if>-->
+<!--            <if test="createTime != null">-->
+<!--                create_time = #{createTime},-->
+<!--            </if>-->
+<!--            <if test="updateBy != null and updateBy != ''">-->
+<!--                update_by = #{updateBy},-->
+<!--            </if>-->
+<!--            <if test="updateTime != null">-->
+<!--                update_time = #{updateTime},-->
+<!--            </if>-->
+<!--            <if test="deleteFlag != null">-->
+<!--                delete_flag = #{deleteFlag},-->
+<!--            </if>-->
+<!--            <if test="version != null">-->
+<!--                version = #{version},-->
+<!--            </if>-->
+<!--        </set>-->
+<!--        where id = #{id}-->
+<!--    </update>-->
 
-    <!--通过主键删除-->
-    <delete id="deleteById">
-        delete from sys_user where id = #{id}
-    </delete>
+<!--    &lt;!&ndash;通过主键删除&ndash;&gt;-->
+<!--    <delete id="deleteById">-->
+<!--        delete from sys_user where id = #{id}-->
+<!--    </delete>-->
 
 </mapper>
 

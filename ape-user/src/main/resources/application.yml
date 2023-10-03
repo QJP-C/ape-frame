@@ -5,7 +5,7 @@ spring:
     username: root
     password: qjp0128.
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://101.42.152.88:3306/ape-frame?serverTimeZone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://101.42.152.88:3306/ape-frame?serverTimeZone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       initial-size: 20   #初始连接数

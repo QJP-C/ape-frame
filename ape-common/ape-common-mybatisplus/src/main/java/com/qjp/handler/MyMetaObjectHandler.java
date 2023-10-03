@@ -8,16 +8,17 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 
 
-@Component
+
 @Slf4j
+@Component
 public class MyMetaObjectHandler implements MetaObjectHandler {
+
     /**
      * 插入时的字段填充
      * @param metaObject
      */
     @Override
     public void insertFill(MetaObject metaObject) {
-        log.debug("insert qjp");
         this.strictInsertFill(metaObject,"createBy",String.class,"qjp");
         this.strictInsertFill(metaObject,"createTime", Date.class,new Date());
         this.strictInsertFill(metaObject,"deleteFlag",Integer.class,0);//未删除
@@ -33,4 +34,5 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
         this.strictUpdateFill(metaObject,"updateBy",String.class,"qjp");
         this.strictUpdateFill(metaObject,"updateTime", Date.class,new Date());
     }
+
 }

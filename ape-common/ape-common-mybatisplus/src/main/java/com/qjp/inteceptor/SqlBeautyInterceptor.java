@@ -12,7 +12,7 @@ import java.sql.Statement;
 import java.util.*;
 
 /**
- * 日志优化
+ * sql日志优化
  */
 @Intercepts(value = {
         @Signature(args = {Statement.class, ResultHandler.class}, method = "query", type = StatementHandler.class),

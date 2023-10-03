@@ -7,7 +7,6 @@ import com.qjp.entity.BaseEntity;
 import io.swagger.annotations.ApiParam;
 import lombok.Data;
 
-import java.util.Date;
 import java.io.Serializable;
 
 /**
@@ -25,19 +24,6 @@ public class SysUser extends BaseEntity implements Serializable {
     private String name;
 
     private Integer age;
-
-    private String createBy;
-
-    private Date createTime;
-
-    private String updateBy;
-
-    private Date updateTime;
-
-    private Integer deleteFlag;
-
-    private Integer version;
-
 
 }
 

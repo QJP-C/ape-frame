@@ -1,5 +1,7 @@
 package com.qjp.bean;
 
+import lombok.Data;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -8,7 +10,8 @@ import java.util.List;
  *
  * @param <T>
  */
-public class PageResponse<T> {
+@Data
+public class PageResponse<T>{
 
 
     private Long pageNo = 1L;

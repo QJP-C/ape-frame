@@ -2,7 +2,7 @@ package com.qjp.user.convert;
 
 import com.qjp.user.entity.po.SysUser;
 import com.qjp.user.entity.req.SysUserReq;
-import org.apache.ibatis.annotations.Mapper;
+import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
 /**
