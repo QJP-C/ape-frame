@@ -24,11 +24,41 @@ spring:
           slow-sql-mills: 2000
         wall:
           enabled: true
-
+  redis:
+    host: 101.42.152.88
+    port: 6379
+    password: qjp0128.
+    database: 0
+    lettuce: #指定lettuce连接池
+      pool:
+        max-active: 20    #最大连接数
+        max-idle: 8       #最大空闲连接数
+        max-wait: -1      #等待时刻    (-1为一直等)
+        min-idle: 0       #最小空闲
 sql:
   beauty:
-    show: false     #是否开启日志优化
+    show: true     #是否开启日志优化
 
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-field: delete_flag    #逻辑删除字段                要配合@TableLogic使用
+      logic-delete-value: 1              #指定1为删除
+      logic-not-delete-value: 0          #不删除为0
+  mapper-location: classpath:mapper/*.xml   # 配置mapper的扫描，找到所有的mapper.xml映射文件
 #  configuration:
 #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #打印sql语句
 #    mapper-locations: com/qjp/mapper/xml/*.xml   # 配置mapper的扫描，找到所有的mapper.xml映射文件
+
+swagger:
+  base-package: com.qjp
+  title: ape-frame
+  contact-name: 疯狂烤翅
+  contact-url: 地址
+  email: 915950092@qq.com
+  version: 1.0
+  description: 开箱即用脚手架
+
+logging:
+  config: classpath:log4j-spring.xml
+
