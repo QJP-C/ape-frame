@@ -45,7 +45,7 @@ mybatis-plus:
       logic-delete-field: delete_flag    #逻辑删除字段                要配合@TableLogic使用
       logic-delete-value: 1              #指定1为删除
       logic-not-delete-value: 0          #不删除为0
-  mapper-location: classpath:mapper/*.xml   # 配置mapper的扫描，找到所有的mapper.xml映射文件
+  mapper-locations: classpath:mapper/*.xml   # 配置mapper的扫描，找到所有的mapper.xml映射文件
 #  configuration:
 #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #打印sql语句
 #    mapper-locations: com/qjp/mapper/xml/*.xml   # 配置mapper的扫描，找到所有的mapper.xml映射文件
