@@ -59,6 +59,10 @@ swagger:
   version: 1.0
   description: 开箱即用脚手架
 
+#输出日志文件
 logging:
-  config: classpath:log4j-spring.xml
+  config: classpath:log4j2-spring.xml
 
+log:
+  aspect:
+    enable: true

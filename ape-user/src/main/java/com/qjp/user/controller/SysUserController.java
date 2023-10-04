@@ -73,20 +73,20 @@ public class SysUserController  {
 
     /** 
      * 
-     * @param sysUserdto 实体对象
+     * @param sysUser 实体对象
      * @author makejava  
      * @description //TODO  修改数据
      * @date 2023-09-26 15:53:27
      * @return 修改结果
      */
     @PutMapping
-    public Result update(SysUser SysUser) {
-         return Result.ok(sysUserService.update(SysUser));
+    public Result update(SysUser sysUser) {
+         return Result.ok(sysUserService.update(sysUser));
     }
 
     /** 
      * 
-     * @param idList 主键集合
+     * @param id 主键
      * @author makejava  
      * @description //TODO  删除数据
      * @date 2023-09-26 15:53:27

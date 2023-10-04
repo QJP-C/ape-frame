@@ -2,9 +2,20 @@
 <!--Configuration后面的status，这个用于设置log4j2自身内部的信息输出，可以不设置，当设置成trace时，你会看到log4j2内部各种详细输出-->
 <!--monitorInterval：Log4j能够自动检测修改配置 文件和重新配置本身，设置间隔秒数-->
 <configuration status="INFO" monitorInterval="5">
+
     <!--日志级别以及优先级排序: OFF > FATAL > ERROR > WARN > INFO > DEBUG > TRACE > ALL -->
     <!--变量配置-->
     <Properties>
+        <!-- 彩色日志 -->
+        <!-- 彩色日志依赖的渲染类 -->
+<!--            <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter" />-->
+<!--            <conversionRule conversionWord="wex" converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter" />-->
+<!--            <conversionRule conversionWord="wEx"-->
+<!--                            converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter" />-->
+<!--            &lt;!&ndash; 彩色日志格式 &ndash;&gt;-->
+<!--            <property name="CONSOLE_LOG_PATTERN"-->
+<!--                      value="${CONSOLE_LOG_PATTERN:-%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(-&#45;&#45;){faint} %clr([%thread]){faint} %clr(%-40.40logger{39}){cyan} %clr([%L]) %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}" />-->
+
         <!-- 格式化输出：%date表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度 %msg：日志消息，%n是换行符-->
         <!-- %logger{36} 表示 Logger 名字最长36个字符 -->
         <property name="LOG_PATTERN" value="%date{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
@@ -16,7 +27,8 @@
 
     <!--https://logging.apache.org/log4j/2.x/manual/appenders.html-->
     <appenders>
-        <console name="Console" target="SYSTEM_OUT">
+        <console name="Console" target="SYSTEM_OUT" class="ch.qos.logback.core.ConsoleAppender">
+
             <!--输出日志的格式-->
             <PatternLayout pattern="${LOG_PATTERN}"/>
             <!--控制台只输出level及其以上级别的信息（onMatch），其他的直接拒绝（onMismatch）-->
@@ -89,13 +101,22 @@
             <AppenderRef ref="Console"/>
         </Logger>
 <!--        异步日志-->
+
         <AsyncLogger name="asyncLog" level="info" additivity="true">
             <appender-ref ref="RollingFileInfo"/>
+            <AppenderRef ref="Console"/>
         </AsyncLogger>
 
         <AsyncRoot level="info" includeLocation="true">
             <AppenderRef ref="RollingFileInfo"/>
+            <AppenderRef ref="Console"/>
         </AsyncRoot>
+
+<!--        <root>-->
+<!--            <priority value ="INFO"/>-->
+<!--            <appender-ref ref="Console"/>-->
+<!--        </root>-->
+
 <!--        <root level="info">-->
 <!--            <appender-ref ref="Console"/>-->
 <!--            <appender-ref ref="RollingFileInfo"/>-->

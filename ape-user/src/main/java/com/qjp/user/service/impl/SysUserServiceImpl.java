@@ -72,9 +72,8 @@ public class SysUserServiceImpl implements SysUserService {
      * @return 实例对象
      */
     @Override
-    public SysUser update(SysUser sysUser) {
-        sysUserDao.updateById(sysUser);
-        return this.queryById(sysUser.getId());
+    public int update(SysUser sysUser) {
+        return sysUserDao.updateById(sysUser);
     }
 
     /**
