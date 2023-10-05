@@ -12,6 +12,7 @@
         <module>ape-user</module>
         <module>ape-common</module>
         <module>ape-dependencies</module>
+        <module>ape-common/ape-common-tool</module>
     </modules>
 
 </project>
