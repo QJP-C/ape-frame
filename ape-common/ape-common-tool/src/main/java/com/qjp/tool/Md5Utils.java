@@ -2,6 +2,9 @@ package com.qjp.tool;
 
 import java.security.MessageDigest;
 
+/**
+ * MD5加密
+ */
 public class Md5Utils {
 
     public static String encode(String text) {
