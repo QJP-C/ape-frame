@@ -9,7 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="ape-common-mybatisplus" />
         <module name="ape-common-redis" />
-        <module name="ape-user" />
+        <module name="ape-demo" />
         <module name="ape-common-web" />
         <module name="ape-common-log" />
         <module name="ape-common-swagger" />
@@ -29,9 +29,9 @@
       <module name="ape-common-mybatisplus" options="" />
       <module name="ape-common-redis" options="" />
       <module name="ape-common-web" options="" />
+      <module name="ape-demo" options="" />
       <module name="ape-dependencies" options="" />
       <module name="ape-frame" options="" />
-      <module name="ape-user" options="" />
     </option>
   </component>
 </project>

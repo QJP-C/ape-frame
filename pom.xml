@@ -9,7 +9,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <modules> <!--子模块-->
-        <module>ape-user</module>
+        <module>ape-demo</module>
         <module>ape-common</module>
         <module>ape-dependencies</module>
         <module>ape-common/ape-common-tool</module>
