@@ -1,7 +1,8 @@
 package com.qjp.user.designPattern.templatePattern.prod;
 
-import com.jingdianjichi.bean.Result;
-import com.jingdianjichi.bean.ResultCode;
+
+import com.qjp.bean.Result;
+import com.qjp.bean.ResultCode;
 
 /**
  * @Author: ChickenWing

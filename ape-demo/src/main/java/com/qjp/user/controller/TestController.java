@@ -56,7 +56,9 @@ public class TestController {
     public void testLocalCache() throws Exception{
         List<Long> skuIdList = new ArrayList<>();
         cacheUtil.getResult(skuIdList,"skuInfo.skuName",SkuInfo.class,(list)-> {
+            //从数据库中获取数据
             Map<Long, SkuInfo> skuInfoMap = getSkuName(skuIdList);
+            //返回结果
             return skuInfoMap;
         });
 

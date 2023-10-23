@@ -1,6 +1,7 @@
 package com.qjp.user.designPattern.templatePattern.prod;
 
-import com.jingdianjichi.bean.Result;
+
+import com.qjp.bean.Result;
 
 public class ApiTemplateDemo {
 

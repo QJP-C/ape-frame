@@ -14,6 +14,7 @@
         <module name="ape-common-log" />
         <module name="ape-common-swagger" />
         <module name="ape-common-starter" />
+        <module name="ape-common-websocket" />
         <module name="ape-common-tool" />
       </profile>
     </annotationProcessing>

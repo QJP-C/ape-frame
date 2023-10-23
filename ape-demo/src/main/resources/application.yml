@@ -66,3 +66,7 @@ logging:
 log:
   aspect:
     enable: true
+#guava本地缓存开关
+guava:
+  cache:
+    switch: true

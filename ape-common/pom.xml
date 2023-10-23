@@ -21,7 +21,8 @@
         <module>ape-common-swagger</module>
         <module>ape-common-redis</module>
         <module>ape-common-log</module>
-<!--        <module>ape-common-arthas</module>-->
+        <module>ape-common-websocket</module>
+        <!--        <module>ape-common-arthas</module>-->
     </modules>
 
     <dependencyManagement>

@@ -1,7 +1,8 @@
 package com.qjp.user.designPattern.strategyPattern.demo.handler;
 
-import com.jingdianjichi.user.designPattern.strategyPattern.demo.PayChannelEnum;
-import com.jingdianjichi.user.designPattern.strategyPattern.demo.PayHandler;
+
+import com.qjp.user.designPattern.strategyPattern.demo.PayChannelEnum;
+import com.qjp.user.designPattern.strategyPattern.demo.PayHandler;
 import org.springframework.stereotype.Component;
 
 @Component
